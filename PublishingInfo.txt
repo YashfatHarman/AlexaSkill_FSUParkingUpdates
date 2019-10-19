@@ -1,0 +1,22 @@
+Testing Instructions:
+
+The Skill only provides updates for today and tomorrow. So both of these days should be tested. The user specifies the desired day by including "today" or "tomorrow" in the utterances. If none is mentioned, the skill defaults to today.
+
+Short Skill Description:
+Get day to day parking and transportation updates for Florida State University's main campus in Tallahassee, FL.
+
+Full Skill Description:
+This skill uses Twitter public API to get daily parking and transportation updates published in @FSUParking twitter account. The twitter account is managed by Florida State University Transportation & Parking Services. Simply tell Alexa to ask FSU Parking Updates to get updates for today or tomorrow, and stay up to date before leaving for campus!   
+
+Updated Testing Instructions:
+The Skill only provides updates for today and tomorrow. So both of these days should be tested. The user specifies the desired day by including "today" or "tomorrow" in the utterances. If none is mentioned, the skill defaults to today.
+
+Important 1:
+The skill is supposed to check a certain twitter account managed by the FSU Transportation authority and fetch the updates for today and tomorrow, whichever the user asks. This account only provides updates if an exception from normal rules applies (hence the term "updates"). This happens when a certain parking lot is blocked or reserved, or if a certain bus route is changed. If, on a given day, no such changed happens, then there will be no new update in Twitter; and the skill will respond with "There are no transportation updates for today" or "tomorrow". An explanation is added at the end of the response saying "This generally means normal service is in effect. Please check again later to see if any new update is posted."
+
+Important 2:
+The tweets are often posted in the evening or early morning. So if a user is looking for the next day's (tomorrow's) update, there is a good chance that the updates are not posted yet. In that case, the skill will respond with "There are no transportation updates for tomorrow". The people of FSU who park on campus (the intended audience of this skill) are well aware of this timing. The option for "tomorrow" is included in the skill so that an user can check for updates on the previous evening before going to sleep and plan accordingly in the next morning. An explanation is added at the end of the response saying "This generally means normal service will be in effect. Please check again this evening or tomorrow morning to see if any new update is posted."
+
+It is very important to note that unless the skill is tested in the late evening on a given day, the chances of getting any update for "tomorrow" is low. And even then, sometimes the tweets are posted in the early morning of the day of application other than the previous evening. So please do not flag it as incorrect response if no update is found for all the utterances of "GetTomorrowsUpdates". (This has happened the last time.) 
+
+

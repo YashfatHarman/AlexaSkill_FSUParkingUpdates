@@ -1,0 +1,44 @@
+I got a skill submission rejected this morning, with some feedbacks. The feedbacks indicated three flaws into the skill. Among them, the third one is legit and the code has been updated to mitigate that. For the first and second feedback, the app is behaving exactly as it should. I believe the tester did not understand the reasoning behind the behavior and wrongly flagged them as "errors". Please see the attached feedbacks at the end of this message to get better context.
+
+The skill is supposed to check a certain twitter account managed by the FSU Transportation authority and fetch the updates for today and tomorrow, whichever the user asks. This account only provides updates if an exception from normal rules applies (hence the term "updates"). This happens when a certain parking lot is blocked or reserved, or if a certain bus route is changed. If, on a given day, no such changed happens, then there will be no new update in Twitter; and the skill will respond with "There are no transportation updates for today" or "tomorrow".
+
+Similarly, the tweets are often posted in the evening or early morning. So if a user is looking for the next day's (tomorrow's) update, there is a good chance that the updates are not posted yet. In that case, the skill will respond with "There are no transportation updates for tomorrow". The people of FSU who parks on campus (the inteded audience of this skill) are well aware of this timing. The option for "tomorrow" is included in the skill so that an user can check for updates on the previous evenign before going to sleep and plan accordingly in the next morning.
+
+I have updated the skill's response to clarify the response. Hopefully, it will be enough to get it certified. 
+
+In any case, the comment in feedback 2: "Please note that same response is observed for all the utterances of "GetTomorrowsUpdates" in both modal and one-shot." is a result of misunderstanding from the tester's part. The skill gives the same response because during the time of testing (I belive on the morning of 28 June) there was no update in the Twitter feed for the next day. So this is the only correct response.  
+ 
+I have submitted to updated skill for recertification. Hope this will be enough.
+
+Thanks. 
+
+
+Here are the detailed feedback I received:
+
+1. When attempting to invoke the skill with the "third example phrase" the skill returns a non- contextualized response.  The example phrases must function without error since these are interactions that users are most likely to try.  Please see test case 3.1 from our Submission Checklist for guidance on example phrases.
+
+Steps to reproduce:
+
+User: "Alexa, ask f. s. u. parking updates for the update for tomorrow"
+
+Skill: "There are no transportation updates for tomorrow"
+
+Please note that as per the testing instructions, the skill should give updates for tomorrow.
+
+2. When invoking the skill with the following intent name "GetTomorrowsUpdates", the skill’s response is irrelevant to the request.  Please see test case 4.3 from our Submission Checklist for guidance on intent responses.
+
+Steps to reproduce:
+
+User: "Alexa open f. s. u. parking updates"
+
+Skill: "Welcome to F. S. U. Parking Updates Application. Please ask me for transportation updates by saying, updates for today."
+
+User: "tomorrows parking updates"
+
+Skill: "There are no transportation updates for tomorrow."
+
+Please note that same response is observed for all the utterances of "GetTomorrowsUpdates" in both modal and one-shot.
+
+ 
+
+3. Code references such as "SessionSpeechlet - GetTomorrowsUpdates", "SessionSpeechlet - Welcome", "SessionSpeechlet - GetTodaysUpdates", "SessionSpeechlet - Session Ended" are displayed in the Home cards for your skill.  Please remove any code references to make the content user friendly.  Please refer to test case 3.3 of the Submission Checklist for expected behavior.
